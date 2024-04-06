@@ -4,6 +4,7 @@ import os
 
 app = FastAPI()
 
+#Main route
 @app.get("/transcript/{video_id}")
 async def get_transcript(video_id: str):
     try:
