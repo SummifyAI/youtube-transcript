@@ -10,11 +10,11 @@ async def get_transcript(video_id: str):
     try:
         proxy_user = os.environ.get("PROXY_USER")
         proxy_password = os.environ.get("PROXY_PASSWORD")
-        console.log(proxy_user)
+        print(proxy_user)
         proxies = {
             "http": f"http://{proxy_user}:{proxy_password}@p.webshare.io:80",
         }
-        transcript = YouTubeTranscriptApi.get_transcript(video_id, proxies=proxies)
+        transcript = YouTubeTranscriptApi.get_transcript(video_id)
         transcript_dict = {}
         for item in transcript:
             timestamp = f"{int(item['start']) // 60}:{item['start'] % 60:.0f}"
