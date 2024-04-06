@@ -14,7 +14,7 @@ async def get_transcript(video_id: str):
             "http": f"http://{proxy_user}:{proxy_password}@p.webshare.io:80",
              "https": f"http://{proxy_user}:{proxy_password}@p.webshare.io:80",
         }
-        transcript = YouTubeTranscriptApi.get_transcript(video_id)
+        transcript = YouTubeTranscriptApi.get_transcript(video_id, proxies=proxies)
         transcript_dict = {}
         for item in transcript:
             timestamp = f"{int(item['start']) // 60}:{item['start'] % 60:.0f}"
