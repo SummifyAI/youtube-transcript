@@ -18,7 +18,7 @@ async def get_transcript(video_id: str):
         transcripts = YouTubeTranscriptApi.list_transcripts(video_id, proxies=proxies)
         frst_lang = list(transcripts._generated_transcripts)[0]
         transcript = transcripts._generated_transcripts[frst_lang].fetch()
-        transcript_dict = {}
+        
         transcript_dict = {}
         for item in transcript:
             timestamp = f"{int(item['start']) // 60}:{item['start'] % 60:.0f}"
